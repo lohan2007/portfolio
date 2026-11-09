@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background-color: #08080a;
+  color: #f5f5f7;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: #FFE96B;
+  color: #000000;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Studio Inset Border Frame (from reference template screenshot) */
+.studio-frame-inset {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 28px;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.8),
+    0 25px 60px -15px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(18, 18, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-pill {
+  background: rgba(22, 22, 26, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-pill-active {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Subtle Mask for Smooth Fades */
+.mask-radial-vignette {
+  mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+}
+
+.mask-linear-horizontal {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Text stroke outline effect */
+.text-stroke-subtle {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+  color: transparent;
+}
+
