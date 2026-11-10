@@ -8,6 +8,7 @@
 export const personalData = {
   name: "Lohan Sabari Krishna",
   monogram: "LSK",
+  avatar: "/profile.jpg",
   shortTitle: "AI Student. Builder. Creator.",
   role: "AI & Machine Learning Engineer in the Making",
   institution: "Thejus Engineering College",

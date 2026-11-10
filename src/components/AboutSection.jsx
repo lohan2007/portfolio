@@ -14,6 +14,7 @@ export default function AboutSection() {
   const isInView = useInView(containerRef, { once: true, margin: '-80px' });
   const [activePillar, setActivePillar] = useState(0);
   const [downloaded, setDownloaded] = useState(false);
+  const [viewMode, setViewMode] = useState('photo'); // 'photo' | 'neural'
 
   const pillars = [
     {
@@ -168,36 +169,85 @@ CORE FOCUS:
           {/* Left Column: Portrait & Biometric Identity Card */}
           <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-zinc-900/50 border border-white/15 relative overflow-hidden group">
             
-            {/* Top Status */}
+            {/* Top Status & View Mode Switcher */}
             <div className="flex items-center justify-between z-10 font-mono text-xs">
-              <span className="px-3 py-1 rounded-full bg-black/70 border border-white/10 text-accent flex items-center gap-1.5">
+              <span className="px-3 py-1 rounded-full bg-black/70 border border-white/10 text-accent flex items-center gap-1.5 shadow-sm">
                 <Sparkles size={11} />
                 <span>VERIFIED UNDERGRAD</span>
               </span>
-              <span className="text-zinc-500">ID: LSK-2024-AI</span>
-            </div>
-
-            {/* Interactive 3D WebGL Neural Core */}
-            <div className="relative my-6 h-56 w-full rounded-2xl overflow-hidden bg-gradient-to-b from-zinc-800/60 to-zinc-950 border border-white/10 flex items-center justify-center">
-              <NeuralCore3D />
-
-              {/* LSK Floating Badge in center of 3D space */}
-              <div className="absolute pointer-events-none w-14 h-14 rounded-2xl bg-zinc-900/80 backdrop-blur-md border border-white/20 flex items-center justify-center font-display text-xl font-extrabold text-white group-hover:text-accent group-hover:border-accent transition-all duration-300 shadow-xl">
-                {personalData.monogram}
-              </div>
-
-              {/* Scanline Sweep Animation */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/15 to-transparent h-14 w-full -translate-y-full group-hover:translate-y-[260px] transition-transform duration-1000 ease-in-out pointer-events-none" />
-
-              {/* Bottom Tag */}
-              <div className="absolute bottom-3 left-3 right-3 px-3 py-1.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-between font-mono text-[10px] text-zinc-300">
-                <span className="flex items-center gap-1 text-accent">
-                  <Cpu size={12} />
-                  <span>Neural Architect</span>
-                </span>
-                <span className="text-zinc-500">2024 — 2028</span>
+              
+              {/* Mode toggle between Portrait & 3D Core */}
+              <div className="flex items-center p-0.5 rounded-lg bg-black/60 border border-white/10 text-[10px]">
+                <button
+                  type="button"
+                  onClick={() => { setViewMode('photo'); sound.playTick(600); }}
+                  className={`px-2.5 py-1 rounded-md transition-colors ${viewMode === 'photo' ? 'bg-zinc-800 text-accent font-semibold shadow' : 'text-zinc-500 hover:text-white'}`}
+                >
+                  Portrait
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setViewMode('neural'); sound.playTick(680); }}
+                  className={`px-2.5 py-1 rounded-md transition-colors ${viewMode === 'neural' ? 'bg-zinc-800 text-accent font-semibold shadow' : 'text-zinc-500 hover:text-white'}`}
+                >
+                  3D Core
+                </button>
               </div>
             </div>
+
+            {/* Visual Centerpiece (Portrait Photo or 3D Neural Core) */}
+            {viewMode === 'photo' ? (
+              <div className="relative my-6 h-80 sm:h-96 w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 group/portrait shadow-2xl">
+                <img
+                  src={personalData.avatar || "/profile.jpg"}
+                  alt={personalData.name}
+                  className="w-full h-full object-cover object-top filter grayscale contrast-[105%] group-hover/portrait:grayscale-0 group-hover/portrait:scale-105 transition-all duration-700 ease-out"
+                />
+                
+                {/* Cinematic subtle vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent pointer-events-none" />
+                
+                {/* Corner technical crosshairs */}
+                <span className="absolute top-2.5 left-3 font-mono text-[10px] text-white/40 pointer-events-none">+</span>
+                <span className="absolute top-2.5 right-3 font-mono text-[10px] text-white/40 pointer-events-none">+</span>
+
+                {/* Floating Monogram Chip */}
+                <div className="absolute top-3 right-3 px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-md border border-white/15 text-[10px] font-mono text-accent">
+                  {personalData.monogram}
+                </div>
+
+                {/* Interactive Scanline Sweep on hover */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/20 to-transparent h-20 w-full -translate-y-full group-hover/portrait:translate-y-[420px] transition-transform duration-1000 ease-in-out pointer-events-none" />
+
+                {/* Hover prompt hint */}
+                <div className="absolute top-3 left-3 px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-md border border-white/10 text-[9px] font-mono text-zinc-400 opacity-80 group-hover/portrait:opacity-0 transition-opacity">
+                  HOVER FOR COLOR
+                </div>
+
+                {/* Bottom Overlay Info Tag */}
+                <div className="absolute bottom-3 left-3 right-3 px-3.5 py-2.5 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 flex items-center justify-between font-mono text-[11px] text-zinc-300">
+                  <span className="flex items-center gap-1.5 text-accent font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                    <span>{personalData.name}</span>
+                  </span>
+                  <span className="text-zinc-400 text-[10px]">CSE (AI) • 2024–28</span>
+                </div>
+              </div>
+            ) : (
+              <div className="relative my-6 h-80 sm:h-96 w-full rounded-2xl overflow-hidden bg-gradient-to-b from-zinc-800/60 to-zinc-950 border border-white/10 flex items-center justify-center">
+                <NeuralCore3D />
+                <div className="absolute pointer-events-none w-14 h-14 rounded-2xl bg-zinc-900/80 backdrop-blur-md border border-white/20 flex items-center justify-center font-display text-xl font-extrabold text-white shadow-xl">
+                  {personalData.monogram}
+                </div>
+                <div className="absolute bottom-3 left-3 right-3 px-3 py-1.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-between font-mono text-[10px] text-zinc-300">
+                  <span className="flex items-center gap-1 text-accent">
+                    <Cpu size={12} />
+                    <span>Neural Geometry</span>
+                  </span>
+                  <span className="text-zinc-500">Interactive 3D</span>
+                </div>
+              </div>
+            )}
 
             {/* Bottom Details & Download CV Action */}
             <div className="space-y-3 z-10 pt-4 border-t border-white/10">
