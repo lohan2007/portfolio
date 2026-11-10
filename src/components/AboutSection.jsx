@@ -101,7 +101,11 @@ CORE FOCUS:
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="text-lg sm:text-xl md:text-2xl font-normal leading-relaxed text-zinc-300 font-sans tracking-normal"
           >
-            I am a{' '}
+            Hey, I am{' '}
+            <span className="font-semibold text-white px-2.5 py-0.5 rounded-md bg-zinc-900 border border-white/15 inline-block mx-1 shadow-sm">
+              Lohan
+            </span>{' '}
+            — a{' '}
             <span className="font-semibold text-white px-2 py-0.5 rounded-md bg-zinc-900 border border-white/15 inline-block mx-1">
               first-year undergraduate
             </span>{' '}
