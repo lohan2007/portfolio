@@ -135,29 +135,32 @@ export default function HeroSection({ onOpenProjectModal }) {
           <div className="max-w-2xl pointer-events-auto">
             
             {/* Studio Owner Signature Bar */}
-            <div className="flex items-center gap-2 mb-3 font-mono text-xs">
-              <span className="px-2.5 py-0.5 rounded-full bg-zinc-900/90 border border-white/15 text-accent font-semibold tracking-wider flex items-center gap-1.5">
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
+              <span className="px-2.5 py-0.5 rounded-full bg-zinc-900/90 border border-white/15 text-accent font-semibold tracking-wider flex items-center gap-1.5 shadow-sm">
                 <Sparkles size={11} />
-                <span>LOHAN SABARI KRISHNA</span>
+                <span>THEJUS AI LAB // 2026</span>
               </span>
               <span className="text-zinc-600">/</span>
-              <span className="text-zinc-400 text-[11px]">THEJUS AI LAB</span>
+              <span className="text-zinc-400 text-[11px] uppercase tracking-wider">{personalData.shortTitle}</span>
             </div>
 
-            {/* Huge bold geometric title with gradient */}
+            {/* Huge bold geometric title with gradient: LOHAN */}
             <div className="overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.h1
-                  key={activeSlide.id}
-                  initial={{ y: 70, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -70, opacity: 0 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight bg-gradient-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent leading-tight uppercase drop-shadow-sm"
-                >
-                  {activeSlide.title}
-                </motion.h1>
-              </AnimatePresence>
+              <motion.h1
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter bg-gradient-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent leading-none uppercase drop-shadow-md select-none"
+              >
+                LOHAN
+              </motion.h1>
+            </div>
+
+            {/* Full Name & Specialization Subtitle */}
+            <div className="mt-2.5 flex items-center gap-2 font-mono text-xs sm:text-sm text-zinc-300">
+              <span className="font-semibold text-white tracking-wider">LOHAN SABARI KRISHNA</span>
+              <span className="text-zinc-600">•</span>
+              <span className="text-accent font-medium">B.Tech CSE (AI)</span>
             </div>
 
             {/* Slide Description & Tech */}
@@ -170,6 +173,10 @@ export default function HeroSection({ onOpenProjectModal }) {
                 transition={{ duration: 0.4, delay: 0.1 }}
                 className="mt-3.5 max-w-xl"
               >
+                <div className="flex items-center gap-2 mb-1.5 font-mono text-[11px] text-zinc-400">
+                  <span className="text-accent font-semibold">FEATURED SYSTEM //</span>
+                  <span className="text-white font-medium uppercase tracking-wide">{activeSlide.title}</span>
+                </div>
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans font-light">
                   {activeSlide.description}
                 </p>
