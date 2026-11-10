@@ -112,22 +112,22 @@ export default function Preloader({ onComplete }) {
               <span>Thejus Engineering College • B.Tech CSE (AI)</span>
             </motion.div>
 
-            {/* Main name in ONE ROW — LOHAN (Yellow) SABARI (White) KRISHNA (Yellow) */}
+            {/* Main name: ONLY LOHAN with 'H' in Red */}
             <div className="overflow-hidden">
               <motion.div 
                 initial={{ y: 60, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-nowrap items-baseline gap-3 sm:gap-4 font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-none"
+                className="flex items-baseline font-display text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tight leading-none"
               >
                 <span className="text-accent drop-shadow-[0_4px_20px_rgba(255,233,107,0.3)]">
-                  LOHAN
+                  LO
                 </span>
-                <span className="text-white drop-shadow-[0_4px_16px_rgba(255,255,255,0.2)]">
-                  SABARI
+                <span className="text-[#FF3B30] drop-shadow-[0_4px_20px_rgba(255,59,48,0.5)]">
+                  H
                 </span>
                 <span className="text-accent drop-shadow-[0_4px_20px_rgba(255,233,107,0.3)]">
-                  KRISHNA
+                  AN
                 </span>
               </motion.div>
             </div>
