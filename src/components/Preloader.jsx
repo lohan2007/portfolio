@@ -112,25 +112,24 @@ export default function Preloader({ onComplete }) {
               <span>Thejus Engineering College • B.Tech CSE (AI)</span>
             </motion.div>
 
-            {/* Main name — letter by letter */}
+            {/* Main name in ONE ROW — LOHAN (Yellow) SABARI (White) KRISHNA (Yellow) */}
             <div className="overflow-hidden">
-              <div className="flex flex-wrap gap-x-0 font-display text-5xl sm:text-7xl md:text-8xl font-bold uppercase tracking-tight text-white leading-none">
-                {letters.map((char, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ y: '100%', opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                      duration: 0.55,
-                      delay: i * 0.03,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                    className={char === ' ' ? 'w-5 sm:w-8 md:w-10 inline-block' : 'inline-block'}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </div>
+              <motion.div 
+                initial={{ y: 60, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-nowrap items-baseline gap-3 sm:gap-4 font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-none"
+              >
+                <span className="text-accent drop-shadow-[0_4px_20px_rgba(255,233,107,0.3)]">
+                  LOHAN
+                </span>
+                <span className="text-white drop-shadow-[0_4px_16px_rgba(255,255,255,0.2)]">
+                  SABARI
+                </span>
+                <span className="text-accent drop-shadow-[0_4px_20px_rgba(255,233,107,0.3)]">
+                  KRISHNA
+                </span>
+              </motion.div>
             </div>
 
             {/* Subtitle */}

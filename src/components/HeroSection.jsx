@@ -144,23 +144,31 @@ export default function HeroSection({ onOpenProjectModal }) {
               <span className="text-zinc-400 text-[11px] uppercase tracking-wider">{personalData.shortTitle}</span>
             </div>
 
-            {/* Huge bold geometric title in luminous studio yellow: LOHAN */}
+            {/* Huge bold geometric title in ONE ROW: LOHAN (Yellow) SABARI (White) KRISHNA (Yellow) */}
             <div className="overflow-hidden">
               <motion.h1
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter bg-gradient-to-br from-[#FFE96B] via-[#FFF3A0] to-[#E8CF38] bg-clip-text text-transparent leading-none uppercase drop-shadow-[0_10px_30px_rgba(255,233,107,0.22)] select-none"
+                className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-none uppercase select-none flex flex-nowrap items-baseline gap-2 sm:gap-3.5"
               >
-                LOHAN
+                <span className="bg-gradient-to-br from-[#FFE96B] via-[#FFF3A0] to-[#E8CF38] bg-clip-text text-transparent drop-shadow-[0_6px_25px_rgba(255,233,107,0.25)]">
+                  LOHAN
+                </span>
+                <span className="text-white drop-shadow-[0_4px_16px_rgba(255,255,255,0.18)]">
+                  SABARI
+                </span>
+                <span className="bg-gradient-to-br from-[#FFE96B] via-[#FFF3A0] to-[#E8CF38] bg-clip-text text-transparent drop-shadow-[0_6px_25px_rgba(255,233,107,0.25)]">
+                  KRISHNA
+                </span>
               </motion.h1>
             </div>
 
-            {/* Full Name & Specialization Subtitle */}
+            {/* Specialization Subtitle */}
             <div className="mt-2.5 flex items-center gap-2 font-mono text-xs sm:text-sm text-zinc-300">
-              <span className="font-semibold text-white tracking-wider">LOHAN SABARI KRISHNA</span>
+              <span className="font-semibold text-white tracking-wider">CSE (ARTIFICIAL INTELLIGENCE)</span>
               <span className="text-zinc-600">•</span>
-              <span className="text-accent font-medium">B.Tech CSE (AI)</span>
+              <span className="text-accent font-medium">THEJUS ENGINEERING COLLEGE</span>
             </div>
 
             {/* Slide Description & Tech */}
