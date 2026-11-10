@@ -144,13 +144,13 @@ export default function HeroSection({ onOpenProjectModal }) {
               <span className="text-zinc-400 text-[11px] uppercase tracking-wider">{personalData.shortTitle}</span>
             </div>
 
-            {/* Huge bold geometric title with gradient: LOHAN */}
+            {/* Huge bold geometric title in luminous studio yellow: LOHAN */}
             <div className="overflow-hidden">
               <motion.h1
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter bg-gradient-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent leading-none uppercase drop-shadow-md select-none"
+                className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter bg-gradient-to-br from-[#FFE96B] via-[#FFF3A0] to-[#E8CF38] bg-clip-text text-transparent leading-none uppercase drop-shadow-[0_10px_30px_rgba(255,233,107,0.22)] select-none"
               >
                 LOHAN
               </motion.h1>
