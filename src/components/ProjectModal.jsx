@@ -122,6 +122,21 @@ export default function ProjectModal({ project, onClose }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
+              {/* Project Image Preview Banner */}
+              {project.image && (
+                <div className="relative mt-5 h-48 sm:h-56 w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover filter contrast-[110%] brightness-[90%]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/40 pointer-events-none" />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/15 font-mono text-[10px] text-accent">
+                    SYS // {project.index || 'AI SYSTEM'}
+                  </div>
+                </div>
+              )}
+
               {/* Title & Tag */}
               <div className="mt-5">
                 <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white">

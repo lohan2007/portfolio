@@ -70,34 +70,49 @@ function ProjectTiltCard({ project, index, onOpenModal }) {
       {/* Visual Preview Container */}
       <div 
         style={{ transform: 'translateZ(25px)' }}
-        className="relative w-full h-56 sm:h-64 rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-950 overflow-hidden border border-white/10 flex items-center justify-center transition-transform duration-300"
+        className="relative w-full h-56 sm:h-64 rounded-2xl bg-zinc-950 overflow-hidden border border-white/10 flex items-center justify-center transition-transform duration-300 group/image shadow-inner"
       >
-        {/* Animated Cyber Core Backdrop */}
-        <div className="absolute inset-0 opacity-30 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700 ease-out flex items-center justify-center">
-          <div className="w-48 h-48 rounded-full border border-white/20 flex items-center justify-center">
-            <div className="w-32 h-32 rounded-2xl border border-dashed border-accent/40 rotate-12 group-hover:rotate-45 transition-transform duration-700 flex items-center justify-center">
-              <Cpu size={36} className="text-zinc-500 group-hover:text-accent transition-colors duration-500" />
+        {/* Project AI Image with High-Tech Dark Zoom Effect */}
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover filter contrast-[110%] brightness-[85%] group-hover/image:scale-110 group-hover/image:brightness-100 group-hover/image:contrast-125 transition-all duration-700 ease-out"
+          />
+        ) : (
+          <div className="absolute inset-0 opacity-30 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700 ease-out flex items-center justify-center">
+            <div className="w-48 h-48 rounded-full border border-white/20 flex items-center justify-center">
+              <div className="w-32 h-32 rounded-2xl border border-dashed border-accent/40 rotate-12 group-hover:rotate-45 transition-transform duration-700 flex items-center justify-center">
+                <Cpu size={36} className="text-zinc-500 group-hover:text-accent transition-colors duration-500" />
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
+        {/* Cinematic dark studio vignette */}
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-black/40 pointer-events-none" />
+
+        {/* Technical Corner Brackets */}
+        <span className="absolute bottom-2.5 left-3 font-mono text-[10px] text-white/30 pointer-events-none">+</span>
+        <span className="absolute bottom-2.5 right-3 font-mono text-[10px] text-white/30 pointer-events-none">+</span>
 
         {/* Top Bar inside preview */}
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 font-mono text-[11px]">
-          <span className="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-white/15 text-zinc-300">
+          <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/15 text-zinc-300 shadow-md">
             SYS // {project.index}
           </span>
-          <span className="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-white/15 text-accent font-semibold">
+          <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/15 text-accent font-semibold shadow-md">
             {project.year}
           </span>
         </div>
 
         {/* Center Hover Action Pill */}
-        <div className="z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold text-xs tracking-wider uppercase shadow-xl scale-95 group-hover:scale-100">
+        <div className="z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-black font-semibold text-xs tracking-wider uppercase shadow-2xl scale-95 group-hover:scale-100">
           <Eye size={14} />
           <span>Explore Architecture</span>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-zinc-950/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-zinc-950/90 to-transparent pointer-events-none" />
       </div>
 
       {/* Card Content */}
@@ -143,7 +158,7 @@ function ProjectTiltCard({ project, index, onOpenModal }) {
 export default function ProjectsSection({ onOpenProjectModal }) {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const categories = ['All', 'Artificial Intelligence', 'Machine Learning & Web', 'Core AI / Python', 'Full Stack & Community'];
+  const categories = ['All', ...new Set(projects.map(p => p.category))];
 
   const filteredProjects = activeFilter === 'All' 
     ? projects 
